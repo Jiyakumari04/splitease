@@ -32,5 +32,6 @@ public class Settlement {
     private LocalDateTime settlementAt;
 
 
-    
+    public void setSettledAt(LocalDateTime now) {
+    }
 }
