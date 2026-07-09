@@ -1,11 +1,11 @@
 package com.Splitease.splitease.controller;
 
-import com.Splitease.splitease.Service.SettlementService;
+import com.Splitease.splitease.service.SettlementService;
 import com.Splitease.splitease.model.Settlement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import com.Splitease.splitease.dto.SettlementRequest;
 import java.util.List;
 
 @RestController

@@ -1,4 +1,4 @@
-package com.Splitease.splitease.Service;
+package com.Splitease.splitease.service;
 
 import com.Splitease.splitease.model.Settlement;
 import com.Splitease.splitease.repository.GroupRepository;
