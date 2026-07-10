@@ -8,4 +8,3 @@ public class SettlementRequest {
     private BigDecimal amount;
 }
 
-//what about the JwtAuthFilter in config folder, GroupControllr in controller folder, AuthRequest, BalanceResponse, ExpenseRequest in dto folder, ExpenseRepository ExpenseSplitRepository GroupRepository UserRepository in repository folder. these all are empty and you didint mention these files and codemin html folder why

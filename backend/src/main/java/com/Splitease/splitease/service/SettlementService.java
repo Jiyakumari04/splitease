@@ -1,6 +1,7 @@
 package com.Splitease.splitease.service;
 
 import com.Splitease.splitease.model.Settlement;
+import com.Splitease.splitease.model.User;
 import com.Splitease.splitease.repository.GroupRepository;
 import com.Splitease.splitease.repository.SettlementRepository;
 import com.Splitease.splitease.repository.UserRepository;
@@ -22,9 +23,9 @@ public class SettlementService {
         Settlement settlement = new Settlement();
         settlement.setGroup(groupRepository.findById(groupId)
                 .orElseThrow(() -> new RuntimeException("Group not found")));
-        settlement.setFromUser(userRepository.findById(fromUserId)
+        settlement.setFromUser((User) userRepository.findById(fromUserId)
                 .orElseThrow(() -> new RuntimeException("User not found")));
-        settlement.setToUser(userRepository.findById(toUserId)
+        settlement.setToUser((User) userRepository.findById(toUserId)
                 .orElseThrow(() -> new RuntimeException("User not found")));
         settlement.setAmount(amount);
         settlement.setSettledAt(LocalDateTime.now());

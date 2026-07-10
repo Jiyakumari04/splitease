@@ -16,13 +16,13 @@ import java.util.Date;
 public class JwtUtil {
     @Value("${jwt.secret}")
     private String secret;
-
     @Value("${jwt.expiration}")
     private long expiration;
 
-    private Key getKey(){
+    private Key getKey() {
         return Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
     }
+
     public String generateToken(String email) {
         return Jwts.builder()
                 .setSubject(email)
@@ -31,17 +31,18 @@ public class JwtUtil {
                 .signWith(getKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
-    public String extractEmail(String token){
-            return Jwts.parserBuilder().setSigningKey(getKey()).build()
-                    .parseClaimsJws(token).getBody().getSubject();
+
+    public String extractEmail(String token) {
+        return Jwts.parserBuilder().setSigningKey(getKey()).build()
+                .parseClaimsJws(token).getBody().getSubject();
+    }
+
+    public boolean isTokenValid(String token) {
+        try {
+            Jwts.parserBuilder().setSigningKey(getKey()).build().parseClaimsJws(token);
+            return true;
+        } catch (JwtException e) {
+            return false;
         }
-
-        public boolean isTokenValid(String token) {
-            try {
-                Jwts.parserBuilder().setSigningKey(getKey()).build().parseClaimsJws(token);
-                return true;
-            } catch (JwtException e) {
-                return false;
-            }    }
-
+    }
 }

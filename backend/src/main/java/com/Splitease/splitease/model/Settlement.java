@@ -28,10 +28,8 @@ public class Settlement {
 
     private BigDecimal amount;
 
-    @Column(name="settles_at")
-    private LocalDateTime settlementAt;
+    @Column(name="settled_at")
+    private LocalDateTime settledAt;
 
 
-    public void setSettledAt(LocalDateTime now) {
-    }
 }
